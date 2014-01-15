@@ -16,9 +16,7 @@ $this->breadcrumbs = array(
 <?php
 //$_SESSION['myVar'] = array();
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.session.js', CClientScript::POS_END);
-Yii::app()->clientScript->registerScript('change_class', "
-
-
+Yii::app()->clientScript->registerScript('change_class_words', "
 
     mw = [];
     jQuery(function($){
@@ -31,7 +29,7 @@ Yii::app()->clientScript->registerScript('change_class', "
     $('.main_word').click(function(){
         $(this).toggleClass('red');
         word_id = $(this).attr('id');
-console.log(mw);
+        console.log(mw);
 
 
         var removed = 0;
@@ -51,25 +49,30 @@ console.log(mw);
     });
 ");
 
-echo "<pre>";
-$_SESSION['fsdfs'] = 'bla';
-print_r($_COOKIE);
-echo "</pre>";
+//print_r($_COOKIE);
 
-foreach($_COOKIE as $k => $cook){
-    if(substr_count($k, 'my_Words')){
-        $cur_words = explode(',', $cook);
+$cur_words = array();
+if($_COOKIE){
+    foreach($_COOKIE as $k => $cook){
+        if(substr_count($k, 'my_Words')){
+            $cur_words = explode(',', $cook);
+        }
     }
 }
 
+//sort($cur_words);
+//print_r($cur_words);
 
 ?>
-<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'>
-    //$("#dictionary_border#main_word" ).toggleClass("red");
-</script>
-
 <div class = "left_title">
     <h2>Словарь <span>выберите слова для печати и перейдите в меню “Print”</span></h2>
+    <h4>Отсартированны по алфавиту</h4>
+</div>
+
+<div id = 'print_tools_horizont'>
+    <div class = 'print_min button'>Сорт. по частоте</div>
+    <div class = 'button'> 3 x 8 </div>
+    <div class = 'button'> 3 x 8 </div>
 </div>
 
 <div id = "dictionary_page">
@@ -79,6 +82,8 @@ foreach($_COOKIE as $k => $cook){
 
 
     echo "<div id = 'dictionary_border'></div>";
+        $red_word = 0;
+        sort($model);
         foreach($model as $items){
             $red_word = 0;
             foreach($cur_words as $word_id){
@@ -86,8 +91,8 @@ foreach($_COOKIE as $k => $cook){
                     $red_word = 1;
                 }
             }
-            //$cur_class = 'main_word';
-            if($red_word){
+            $cur_class = 'main_word';
+            if(($red_word) && $cur_words != 0){
                 $cur_class = "class = 'main_word red'";
             }else{ $cur_class = "class = 'main_word'";}
             echo "<div id = ". $items[1][0]['id'] . "  " . $cur_class . ">";
@@ -165,9 +170,12 @@ foreach($_COOKIE as $k => $cook){
         }
 
     ?>
+
 </div>
 
 <?php
+
+
 function outPart($arr, $part){
     if($arr){
         echo "<h5>$part</h5>";

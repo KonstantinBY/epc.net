@@ -6,8 +6,8 @@
 }
 html, body{
 	height: 100%;	
-	margin-bottom: -40px;	
-	
+	margin-bottom: -40px;
+
 }
 h1,h2,h3,h4,h4,h5,h6{
      font-family: arial,helvetica,sans-serif;
@@ -124,6 +124,11 @@ h2 span{
 	width: 100%;
 	min-height: 440px;
 }
+#middle{
+    margin-top: 10px;
+    width: 100%;
+    min-height: 440px;
+}
 #left{
 	width: 801px;
 	float: left;
@@ -132,7 +137,7 @@ h2 span{
     position: relative;
 }
 #left .left_title{
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 .main_word{
     width: 160px;
@@ -149,9 +154,14 @@ h2 span{
 .main_word:hover{
     background: #ffeeee;
 }
-.main_word:hover+.second_word{
+#dictionary_page{
+    float: left;
+    margin-top: 5px;
+}
+#dictionary_page .main_word:hover+.second_word{
     display: block;
 }
+
 .main_word.red{
     background: #ffeeee;
 }
@@ -181,6 +191,25 @@ h2 span{
     border-left: 1px dashed #6997D3;
 
 }
+.print_word{
+    width: 5.8cm;
+    height: 3cm;
+    float: left;
+    border: 1px dashed #ccc;
+//text-align: center;
+    display:table-cell;
+    vertical-align:middle;
+    overflow: hidden;
+}
+
+.print_word_big{
+    width: 8.7cm;
+    height: 5cm;
+}
+
+.print_word div{
+    margin: auto;
+}
 
 .news{
     float: left;
@@ -208,6 +237,9 @@ h2 span{
     border-radius: 2em/3em 0.5em;
 }
 
+div .print_word{
+    display: flex;
+}
 
 #right{
 	width: 190px;
@@ -220,5 +252,39 @@ h2 span{
 	height: 40px;	
 	background: #ccc;
 	clear: both;
+}
+#print_tools{
+     float: right;
+     width: 120px;
+     min-height: 200px;
+ }
+#print_tools_horizont{
+    display: none;
+    float: left;
+    width: 800px;
+    height: 20px;
+}
+#print_tools_horizont .button{
+    width: 150px;
+    float: left;
+    margin: 0 10px;
+}
+
+.button{
+    display: block;
+    background: url('../images/btn_01.png') repeat-x #A60000;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #888;
+    text-align: center;
+    cursor: pointer;
+    height: 20px;
+    margin: 10px 0;
+
+}
+.button:hover{
+    background: url('../images/btn_01-2.png') repeat-x #A60000;
 }
 

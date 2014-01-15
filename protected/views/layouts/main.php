@@ -7,12 +7,13 @@
 
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/epc.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
+
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/epc.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -30,13 +31,13 @@
         <div id = "menu">
             <div id = "btn_news"><a href = "<?php echo Yii::app()->request->baseUrl; ?>" ></a></div>
             <div id = "btn_dictionary" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/dictionaryPage"></a></div>
-            <div id = "btn_often" class = "btn_menu"><a href = "javascript:void(0);"></a></div>
+            <div id = "btn_often" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/dictionaryOffen"></a></div>
             <div id = "btn_picture" class = "btn_menu"><a href = "javascript:void(0);"></a></div>
-            <div id = "btn_print" class = "btn_menu"><a href = "javascript:void(0);"></a></div>
+            <div id = "btn_print" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/print"></a></div>
             <div id = "btn_faq" class = "btn_menu"><a href = "javascript:void(0);"></a></div>
             <div id = "btn_account" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/admin"></a></div>
         </div>
-        <div id = "content">
+        <div id = "middle">
             <div id = "left"><?php echo $content;?></div>
             <div id = "right"></div>
         </div>

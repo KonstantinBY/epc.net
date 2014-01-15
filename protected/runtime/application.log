@@ -5540,3 +5540,218 @@ Stack trace:
 REQUEST_URI=/epc/dictionaryPage
 HTTP_REFERER=http://127.0.0.1/epc/
 ---
+2014/01/14 14:28:02 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\AppServ\www\epc\framework\web\CController.php:336
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\AppServ\www\epc\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\AppServ\www\epc\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController('print/view')
+#10 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\epc\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/epc/print/view
+---
+2014/01/14 14:28:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\AppServ\www\epc\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\AppServ\www\epc\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\AppServ\www\epc\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\AppServ\www\epc\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController('print/admin')
+#9 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\epc\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/epc/print/admin
+HTTP_REFERER=http://127.0.0.1/epc/site/login
+---
+2014/01/14 14:32:41 [error] [exception.CException] exception 'CException' with message 'Property "CAccessRule.reles" is not defined.' in C:\AppServ\www\epc\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\auth\CAccessControlFilter.php(115): CComponent->__set('reles', Array)
+#1 C:\AppServ\www\epc\framework\web\CController.php(1144): CAccessControlFilter->setRules(Array)
+#2 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#3 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#4 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#5 C:\AppServ\www\epc\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): CController->run('admin')
+#7 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController('print/admin')
+#8 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\AppServ\www\epc\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/epc/print/admin
+---
+2014/01/14 14:35:27 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\AppServ\www\epc\framework\web\CController.php:336
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\AppServ\www\epc\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\AppServ\www\epc\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController('print/view')
+#10 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\epc\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/epc/print/view
+---
+2014/01/14 14:35:43 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\AppServ\www\epc\framework\web\CController.php:336
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\AppServ\www\epc\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\AppServ\www\epc\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController('print/view')
+#10 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\epc\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/epc/print/view
+---
+2014/01/14 14:36:03 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\AppServ\www\epc\framework\web\CController.php:336
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\AppServ\www\epc\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\AppServ\www\epc\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController('print/view')
+#10 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\epc\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/epc/print/view
+---
+2014/01/14 16:03:19 [error] [php] Invalid argument supplied for foreach() (C:\AppServ\www\epc\protected\controllers\PrintController.php:132)
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#1 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\AppServ\www\epc\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#4 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\AppServ\www\epc\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#7 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): PrintController->run()
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\epc\index.php(13): CWebApplication->run()
+REQUEST_URI=/epc/print
+in C:\AppServ\www\epc\protected\controllers\PrintController.php (132)
+in C:\AppServ\www\epc\index.php (13)
+2014/01/14 16:03:30 [error] [php] Invalid argument supplied for foreach() (C:\AppServ\www\epc\protected\views\dictionaryPage\index.php:77)
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 C:\AppServ\www\epc\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 C:\AppServ\www\epc\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 C:\AppServ\www\epc\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 C:\AppServ\www\epc\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\AppServ\www\epc\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\AppServ\www\epc\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\epc\index.php(13): CWebApplication->run()
+REQUEST_URI=/epc/dictionaryPage
+in C:\AppServ\www\epc\protected\views\dictionaryPage\index.php (77)
+in C:\AppServ\www\epc\protected\controllers\DictionaryPageController.php (145)
+in C:\AppServ\www\epc\index.php (13)
+2014/01/14 16:03:45 [error] [php] Invalid argument supplied for foreach() (C:\AppServ\www\epc\protected\controllers\PrintController.php:132)
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#1 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\AppServ\www\epc\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#4 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\AppServ\www\epc\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#7 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): PrintController->run()
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\epc\index.php(13): CWebApplication->run()
+REQUEST_URI=/epc/print
+in C:\AppServ\www\epc\protected\controllers\PrintController.php (132)
+in C:\AppServ\www\epc\index.php (13)
+2014/01/14 16:04:40 [error] [php] Invalid argument supplied for foreach() (C:\AppServ\www\epc\protected\views\dictionaryPage\index.php:77)
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 C:\AppServ\www\epc\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 C:\AppServ\www\epc\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 C:\AppServ\www\epc\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 C:\AppServ\www\epc\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\AppServ\www\epc\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\AppServ\www\epc\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\epc\index.php(13): CWebApplication->run()
+REQUEST_URI=/epc/dictionaryPage
+in C:\AppServ\www\epc\protected\views\dictionaryPage\index.php (77)
+in C:\AppServ\www\epc\protected\controllers\DictionaryPageController.php (145)
+in C:\AppServ\www\epc\index.php (13)
+2014/01/14 16:08:21 [error] [php] Invalid argument supplied for foreach() (C:\AppServ\www\epc\protected\controllers\PrintController.php:132)
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#1 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\AppServ\www\epc\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#4 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\AppServ\www\epc\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#7 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): PrintController->run()
+#8 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\epc\index.php(13): CWebApplication->run()
+REQUEST_URI=/epc/print
+in C:\AppServ\www\epc\protected\controllers\PrintController.php (132)
+in C:\AppServ\www\epc\index.php (13)
+2014/01/15 11:25:47 [error] [php] sort() expects parameter 1 to be array, string given (C:\AppServ\www\epc\protected\views\dictionaryPage\index.php:80)
+Stack trace:
+#0 C:\AppServ\www\epc\framework\web\CBaseController.php(95): DictionaryPageController->renderInternal()
+#1 C:\AppServ\www\epc\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#2 C:\AppServ\www\epc\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#3 C:\AppServ\www\epc\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#4 C:\AppServ\www\epc\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#5 C:\AppServ\www\epc\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#7 C:\AppServ\www\epc\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\AppServ\www\epc\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 C:\AppServ\www\epc\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#10 C:\AppServ\www\epc\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 C:\AppServ\www\epc\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\AppServ\www\epc\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#13 C:\AppServ\www\epc\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#14 C:\AppServ\www\epc\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\AppServ\www\epc\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\AppServ\www\epc\index.php(13): CWebApplication->run()
+REQUEST_URI=/epc/dictionaryPage
+in C:\AppServ\www\epc\protected\views\dictionaryPage\index.php (80)
+in C:\AppServ\www\epc\protected\controllers\DictionaryPageController.php (145)
+in C:\AppServ\www\epc\index.php (13)
