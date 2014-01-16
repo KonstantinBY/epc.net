@@ -191,26 +191,50 @@ h2 span{
     border-left: 1px dashed #6997D3;
 
 }
-
+#print_list{
+    box-shadow: 0px 0px 6px #888;
+    float: left;
+    width: 680px;
+    padding: 6px 0px 6px 16px;
+}
+#print_list .print_center{
+    float: left;
+    width: 662px;
+}
+.print_word.eng{
+    font-size: 32px;
+}
+.print_word.ru{
+    float: right;
+}
 .print_word{
-    width: 5.8cm;
+    width: 5.38cm;
     height: 3cm;
     float: left;
     border: 1px dashed #ccc;
     display: flex;
     vertical-align:middle;
     overflow: hidden;
+    font-size: 12px;
+    padding: 0.2cm;
 }
 
 .print_word_big{
-    width: 8.7cm;
+    width: 8.3cm;
     height: 5cm;
+    font-size: 14px;
+    padding: 0.1cm 0.2cm;
 }
 
 .print_word div{
     margin: auto;
-}
 
+}
+.print_word div div{
+    margin: auto;
+    margin: 5px ;
+    float: left;
+}
 .news{
     float: left;
     margin: 10px 20px 0 0;
@@ -236,12 +260,7 @@ h2 span{
     box-shadow: 1px 1px 2px #05326d;
     border-radius: 2em/3em 0.5em;
 }
-#print_list{
-    box-shadow: 0px 0px 6px #888;
-    float: left;
-    width: 680px;
-    padding: 6px 0px 6px 16px;
-}
+
 
 
 #right{
