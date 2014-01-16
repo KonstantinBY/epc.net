@@ -38,3 +38,9 @@ a:link:after, a:visited:after {content:" (" attr(href) ")";font-size:90%;}
 #body #content, #middle, #container, #maket, #left{
     width: 18cm;
 }
+#print_list{
+    box-shadow: none;
+    float: none;
+    width: auto;
+    padding: 0;
+}

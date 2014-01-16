@@ -80,7 +80,7 @@ return array(
             'connectionString' => 'mysql:host=localhost;dbname=epc',
             'emulatePrepare' => true,
             'username' => 'root',
-            'password' => '123',
+            'password' => '',
             'charset' => 'utf8',
             'tablePrefix' => 'epc_',
         ),

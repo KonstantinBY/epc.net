@@ -31,7 +31,6 @@ Yii::app()->clientScript->registerScript('change_class_words', "
         word_id = $(this).attr('id');
         console.log(mw);
 
-
         var removed = 0;
         $.each(mw, function(k, v){
                 if (v == word_id) {
@@ -40,7 +39,6 @@ Yii::app()->clientScript->registerScript('change_class_words', "
                 }
             }
         );
-
         if (!removed) {
             mw.push(word_id);
         }
@@ -84,6 +82,8 @@ if($_COOKIE){
     echo "<div id = 'dictionary_border'></div>";
         $red_word = 0;
         sort($model);
+
+        //print_r($model[0][1][0]);
         foreach($model as $items){
             $red_word = 0;
             foreach($cur_words as $word_id){
@@ -115,9 +115,9 @@ if($_COOKIE){
             $article = array();
             $unknow= array();
                 foreach($items[1] as $item){
-                    $word = $model_ru->model()->findByPk($item[id_ru])->word . "<br>";
+                    $word = $model_ru->model()->findByPk($item['id_ru'])->word . "<br>";
 
-                    switch ($item[part_search_id]){
+                    switch ($item['part_search_id']){
                         case 1: $noun[] = $word;
                             break;
                         case 2: $adj[] = $word;

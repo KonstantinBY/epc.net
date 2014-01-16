@@ -29,7 +29,7 @@
             <div id = login> </div>
         </div>
         <div id = "menu">
-            <div id = "btn_news"><a href = "<?php echo Yii::app()->request->baseUrl; ?>" ></a></div>
+            <div id = "btn_news"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/" ></a></div>
             <div id = "btn_dictionary" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/dictionaryPage"></a></div>
             <div id = "btn_often" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/dictionaryOffen"></a></div>
             <div id = "btn_picture" class = "btn_menu"><a href = "javascript:void(0);"></a></div>

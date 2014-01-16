@@ -5755,3 +5755,773 @@ REQUEST_URI=/epc/dictionaryPage
 in C:\AppServ\www\epc\protected\views\dictionaryPage\index.php (80)
 in C:\AppServ\www\epc\protected\controllers\DictionaryPageController.php (145)
 in C:\AppServ\www\epc\index.php (13)
+2014/01/15 13:58:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in D:\www\home\epc.net\framework\db\CDbConnection.php:382
+Stack trace:
+#0 D:\www\home\epc.net\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\www\home\epc.net\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\www\home\epc.net\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\www\home\epc.net\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 D:\www\home\epc.net\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 D:\www\home\epc.net\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 D:\www\home\epc.net\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 D:\www\home\epc.net\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 D:\www\home\epc.net\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 D:\www\home\epc.net\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 D:\www\home\epc.net\framework\web\CBaseController.php(147): CListView->init()
+#14 D:\www\home\epc.net\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 D:\www\home\epc.net\protected\views\site\index.php(16): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 D:\www\home\epc.net\framework\web\CBaseController.php(126): require('D:\www\home\epc...')
+#17 D:\www\home\epc.net\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\www\home\epc...', Array, true)
+#18 D:\www\home\epc.net\framework\web\CController.php(869): CBaseController->renderFile('D:\www\home\epc...', Array, true)
+#19 D:\www\home\epc.net\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 D:\www\home\epc.net\protected\controllers\SiteController.php(33): CController->render('index', Array)
+#21 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 D:\www\home\epc.net\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 D:\www\home\epc.net\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 D:\www\home\epc.net\framework\web\CWebApplication.php(282): CController->run('')
+#26 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 D:\www\home\epc.net\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/01/15 13:59:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in D:\www\home\epc.net\framework\db\CDbConnection.php:382
+Stack trace:
+#0 D:\www\home\epc.net\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\www\home\epc.net\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\www\home\epc.net\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\www\home\epc.net\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 D:\www\home\epc.net\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 D:\www\home\epc.net\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 D:\www\home\epc.net\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 D:\www\home\epc.net\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 D:\www\home\epc.net\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 D:\www\home\epc.net\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 D:\www\home\epc.net\framework\web\CBaseController.php(147): CListView->init()
+#14 D:\www\home\epc.net\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 D:\www\home\epc.net\protected\views\site\index.php(16): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 D:\www\home\epc.net\framework\web\CBaseController.php(126): require('D:\www\home\epc...')
+#17 D:\www\home\epc.net\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\www\home\epc...', Array, true)
+#18 D:\www\home\epc.net\framework\web\CController.php(869): CBaseController->renderFile('D:\www\home\epc...', Array, true)
+#19 D:\www\home\epc.net\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 D:\www\home\epc.net\protected\controllers\SiteController.php(33): CController->render('index', Array)
+#21 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 D:\www\home\epc.net\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 D:\www\home\epc.net\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 D:\www\home\epc.net\framework\web\CWebApplication.php(282): CController->run('')
+#26 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 D:\www\home\epc.net\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/01/15 14:13:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in D:\www\home\epc.net\framework\db\CDbConnection.php:382
+Stack trace:
+#0 D:\www\home\epc.net\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\www\home\epc.net\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\www\home\epc.net\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\www\home\epc.net\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 D:\www\home\epc.net\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 D:\www\home\epc.net\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 D:\www\home\epc.net\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 D:\www\home\epc.net\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 D:\www\home\epc.net\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 D:\www\home\epc.net\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 D:\www\home\epc.net\framework\web\CBaseController.php(147): CListView->init()
+#14 D:\www\home\epc.net\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 D:\www\home\epc.net\protected\views\site\index.php(16): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 D:\www\home\epc.net\framework\web\CBaseController.php(126): require('D:\www\home\epc...')
+#17 D:\www\home\epc.net\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\www\home\epc...', Array, true)
+#18 D:\www\home\epc.net\framework\web\CController.php(869): CBaseController->renderFile('D:\www\home\epc...', Array, true)
+#19 D:\www\home\epc.net\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 D:\www\home\epc.net\protected\controllers\SiteController.php(33): CController->render('index', Array)
+#21 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 D:\www\home\epc.net\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 D:\www\home\epc.net\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 D:\www\home\epc.net\framework\web\CWebApplication.php(282): CController->run('')
+#26 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 D:\www\home\epc.net\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/01/15 14:23:37 [error] [php] Use of undefined constant id_ru - assumed 'id_ru' (D:\www\home\epc.net\protected\views\dictionaryPage\index.php:118)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryPage
+in D:\www\home\epc.net\protected\views\dictionaryPage\index.php (118)
+in D:\www\home\epc.net\protected\controllers\DictionaryPageController.php (145)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:24:51 [error] [php] Use of undefined constant id_ru - assumed 'id_ru' (D:\www\home\epc.net\protected\views\dictionaryPage\index.php:118)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryPage
+in D:\www\home\epc.net\protected\views\dictionaryPage\index.php (118)
+in D:\www\home\epc.net\protected\controllers\DictionaryPageController.php (145)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:24:58 [error] [php] Use of undefined constant id_ru - assumed 'id_ru' (D:\www\home\epc.net\protected\views\dictionaryOffen\index.php:118)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryOffenController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryOffenController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryOffenController.php(144): DictionaryOffenController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryOffenController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryOffenController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryOffenController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryOffenController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryOffenController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryOffen
+in D:\www\home\epc.net\protected\views\dictionaryOffen\index.php (118)
+in D:\www\home\epc.net\protected\controllers\DictionaryOffenController.php (144)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:25:55 [error] [php] Use of undefined constant id_ru - assumed 'id_ru' (D:\www\home\epc.net\protected\views\dictionaryOffen\index.php:118)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryOffenController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryOffenController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryOffenController.php(144): DictionaryOffenController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryOffenController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryOffenController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryOffenController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryOffenController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryOffenController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryOffen
+in D:\www\home\epc.net\protected\views\dictionaryOffen\index.php (118)
+in D:\www\home\epc.net\protected\controllers\DictionaryOffenController.php (144)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:26:28 [error] [php] Use of undefined constant id_ru - assumed 'id_ru' (D:\www\home\epc.net\protected\views\dictionaryPage\index.php:118)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryPage
+in D:\www\home\epc.net\protected\views\dictionaryPage\index.php (118)
+in D:\www\home\epc.net\protected\controllers\DictionaryPageController.php (145)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:28:18 [error] [php] Use of undefined constant id_ru - assumed 'id_ru' (D:\www\home\epc.net\protected\views\dictionaryPage\index.php:118)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryPage
+in D:\www\home\epc.net\protected\views\dictionaryPage\index.php (118)
+in D:\www\home\epc.net\protected\controllers\DictionaryPageController.php (145)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:29:42 [error] [php] Use of undefined constant part_search_id - assumed 'part_search_id' (D:\www\home\epc.net\protected\views\dictionaryPage\index.php:120)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryPage
+in D:\www\home\epc.net\protected\views\dictionaryPage\index.php (120)
+in D:\www\home\epc.net\protected\controllers\DictionaryPageController.php (145)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:30:31 [error] [php] Use of undefined constant id_ru - assumed 'id_ru' (D:\www\home\epc.net\protected\views\dictionaryOffen\index.php:118)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryOffenController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryOffenController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryOffenController.php(144): DictionaryOffenController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryOffenController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryOffenController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryOffenController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryOffenController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryOffenController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/dictionaryOffen
+in D:\www\home\epc.net\protected\views\dictionaryOffen\index.php (118)
+in D:\www\home\epc.net\protected\controllers\DictionaryOffenController.php (144)
+in D:\www\home\epc.net\index.php (12)
+2014/01/15 14:52:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/15 15:12:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/15 15:12:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/15 15:15:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/15 15:15:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/15 15:52:40 [error] [php] sort() expects parameter 1 to be array, null given (D:\www\home\epc.net\protected\views\print\index.php:39)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CBaseController.php(95): PrintController->renderInternal()
+#1 D:\www\home\epc.net\framework\web\CController.php(869): PrintController->renderFile()
+#2 D:\www\home\epc.net\framework\web\CController.php(782): PrintController->renderPartial()
+#3 D:\www\home\epc.net\protected\controllers\PrintController.php(139): PrintController->render()
+#4 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): PrintController->actionIndex()
+#5 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#7 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#10 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#12 D:\www\home\epc.net\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(282): PrintController->run()
+#14 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 D:\www\home\epc.net\index.php(12): CWebApplication->run()
+REQUEST_URI=/print
+in D:\www\home\epc.net\protected\views\print\index.php (39)
+in D:\www\home\epc.net\protected\controllers\PrintController.php (139)
+in D:\www\home\epc.net\index.php (12)
+2014/01/16 06:35:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/16 06:35:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/16 07:15:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/16 07:15:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/01/16 08:13:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:14:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:14:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:15:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:16:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:16:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:16:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:28:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:28:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 08:32:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/print".' in D:\www\home\epc.net\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/print')
+#1 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\www\home\epc.net\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ajax/print
+HTTP_REFERER=http://epc.net/print
+---
+2014/01/16 10:18:55 [error] [php] Use of undefined constant RU - assumed 'RU' (D:\www\home\epc.net\protected\views\print\index.php:79)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): PrintController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): PrintController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\PrintController.php(140): PrintController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): PrintController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): PrintController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(13): CWebApplication->run()
+REQUEST_URI=/print
+in D:\www\home\epc.net\protected\views\print\index.php (79)
+in D:\www\home\epc.net\protected\controllers\PrintController.php (140)
+in D:\www\home\epc.net\index.php (13)
+2014/01/16 12:36:38 [error] [exception.CException] exception 'CException' with message 'Property "Dictionary.wordt_eng" is not defined.' in D:\www\home\epc.net\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\www\home\epc.net\framework\db\ar\CActiveRecord.php(145): CComponent->__get('wordt_eng')
+#1 D:\www\home\epc.net\protected\views\print\index.php(63): CActiveRecord->__get('wordt_eng')
+#2 D:\www\home\epc.net\framework\web\CBaseController.php(126): require('D:\www\home\epc...')
+#3 D:\www\home\epc.net\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\www\home\epc...', Array, true)
+#4 D:\www\home\epc.net\framework\web\CController.php(869): CBaseController->renderFile('D:\www\home\epc...', Array, true)
+#5 D:\www\home\epc.net\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#6 D:\www\home\epc.net\protected\controllers\PrintController.php(140): CController->render('index', Array)
+#7 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): PrintController->actionIndex()
+#8 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\www\home\epc.net\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\www\home\epc.net\framework\web\CWebApplication.php(282): CController->run('')
+#17 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController('print')
+#18 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\www\home\epc.net\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/print
+HTTP_REFERER=http://epc.net/
+---
+2014/01/16 12:53:27 [error] [php] Use of undefined constant cansole - assumed 'cansole' (D:\www\home\epc.net\protected\views\print\index.php:64)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): PrintController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): PrintController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\PrintController.php(140): PrintController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): PrintController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): PrintController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(13): CWebApplication->run()
+REQUEST_URI=/print
+in D:\www\home\epc.net\protected\views\print\index.php (64)
+in D:\www\home\epc.net\protected\controllers\PrintController.php (140)
+in D:\www\home\epc.net\index.php (13)
+2014/01/16 12:53:50 [error] [php] Use of undefined constant console - assumed 'console' (D:\www\home\epc.net\protected\views\print\index.php:64)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): PrintController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): PrintController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\PrintController.php(140): PrintController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): PrintController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): PrintController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(13): CWebApplication->run()
+REQUEST_URI=/print
+in D:\www\home\epc.net\protected\views\print\index.php (64)
+in D:\www\home\epc.net\protected\controllers\PrintController.php (140)
+in D:\www\home\epc.net\index.php (13)
+2014/01/16 12:54:16 [error] [php] Use of undefined constant console - assumed 'console' (D:\www\home\epc.net\protected\views\print\index.php:64)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): PrintController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): PrintController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\PrintController.php(140): PrintController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): PrintController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): PrintController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): PrintController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): PrintController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): PrintController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(13): CWebApplication->run()
+REQUEST_URI=/print
+in D:\www\home\epc.net\protected\views\print\index.php (64)
+in D:\www\home\epc.net\protected\controllers\PrintController.php (140)
+in D:\www\home\epc.net\index.php (13)
+2014/01/16 13:08:46 [error] [php] Trying to get property of non-object (D:\www\home\epc.net\protected\views\dictionaryPage\index.php:86)
+Stack trace:
+#0 D:\www\home\epc.net\framework\web\CController.php(869): DictionaryPageController->renderFile()
+#1 D:\www\home\epc.net\framework\web\CController.php(782): DictionaryPageController->renderPartial()
+#2 D:\www\home\epc.net\protected\controllers\DictionaryPageController.php(145): DictionaryPageController->render()
+#3 D:\www\home\epc.net\framework\web\actions\CInlineAction.php(49): DictionaryPageController->actionIndex()
+#4 D:\www\home\epc.net\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(133): DictionaryPageController->runAction()
+#6 D:\www\home\epc.net\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\www\home\epc.net\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\www\home\epc.net\framework\web\filters\CInlineFilter.php(58): DictionaryPageController->filterAccessControl()
+#9 D:\www\home\epc.net\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\www\home\epc.net\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\www\home\epc.net\framework\web\CController.php(265): DictionaryPageController->runActionWithFilters()
+#12 D:\www\home\epc.net\framework\web\CWebApplication.php(282): DictionaryPageController->run()
+#13 D:\www\home\epc.net\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\www\home\epc.net\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\www\home\epc.net\index.php(13): CWebApplication->run()
+REQUEST_URI=/dictionaryPage
+in D:\www\home\epc.net\protected\views\dictionaryPage\index.php (86)
+in D:\www\home\epc.net\protected\controllers\DictionaryPageController.php (145)
+in D:\www\home\epc.net\index.php (13)
