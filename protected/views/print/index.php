@@ -75,7 +75,7 @@ if(!empty($model)){
             while(count($model_sort) % $count_words != 0){
                 $model_sort[] = ' - ';
             }
-
+/*
             $i = 0;
             foreach($model_sort as $item){
                 if(($i / $count_words) % 2 == 0){
@@ -100,7 +100,53 @@ if(!empty($model)){
                     $i += $count_words;
                 }
                 $i++;
+            }*/
+
+            $count_model = count($model_sort);
+            $page = 1;
+            $end = false;
+            $x = 1;
+            while(!$end){
+                for($i = ($page * $count_words) - 10; $i < ($page * $count_words ); $i++){
+                    if($model_sort[$i] != ''){
+                        echo "<div class = 'print_word eng'>";
+                            echo '<div>' . $model_sort[$i] . '</div>';
+                        echo "</div>";
+                        $x++;
+                    }else{
+                        echo "<div class = 'print_word eng'>";
+                            echo '<div> Model Empty </div>';
+                        echo "</div>";
+                        $x++;
+                    }
+                }
+
+                for($j = ($page * $count_words) - 10; $j < ($page * $count_words) ; $j++){
+                    if(!isset($ru[$j])){
+                        continue;
+                    }
+                    if($ru[$j] != ''){
+                        echo "<div class = 'print_word ru'>";
+                            echo "<div>";
+                                foreach($ru[$j] as $ru_w){
+                                    echo "<div>" . $ru_w->word_ru->word . "</div>";
+                                }
+                            echo "</div>";
+                        echo "</div>";
+                        $x++;
+                    }else{
+                        echo "<div class = 'print_word eng'>";
+                            echo '<div> Model Empty </div>';
+                        echo "</div>";
+                        $x++;
+                    }
+                }
+                if($x >= $count_model){
+                    $end = true;
+                }
+                $page++;
             }
+
         echo "</div>";
     echo "</div>";
 }

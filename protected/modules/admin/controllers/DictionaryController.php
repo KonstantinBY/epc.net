@@ -90,7 +90,14 @@ class DictionaryController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 */
-        if($_POST['dictionary'] == 'create')
+            $model = '';
+            $str_preview = '';
+            $str_save = '';
+            $eng_word = '';
+            $ru_word = '';
+            $save_ready = '';
+
+        if(isset($_POST['dictionary']) == 'create')
 		{
             $eng_word = $_POST['eng_word'];
             $ru_word = $_POST['ru_word'];
@@ -204,7 +211,7 @@ class DictionaryController extends Controller
                             $items = $model->findAllByAttributes(array('id_eng' => $eng_id));
                             $flag = false;
                             foreach($items as $item){
-                                if($item[id_ru] == $ru_id){
+                                if($item['id_ru'] == $ru_id){
                                     $flag = true;
                                 }
                             }
