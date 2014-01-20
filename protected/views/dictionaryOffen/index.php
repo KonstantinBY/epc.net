@@ -66,7 +66,10 @@ if($_COOKIE){
 ?>
     <div class = "left_title">
         <h2>Словарь <span>выберите слова для печати и перейдите в меню “Print”</span></h2>
-        <h4>Отсартированны по частоте использования в английской речи</h4>
+        <h4>
+            Отсартированны по частоте использования в английской речи
+            <?php echo "<span> (" . count($model) . ") слов</span>"?>
+        </h4>
     </div>
 
     <div id = 'print_tools_horizont'>
@@ -77,7 +80,7 @@ if($_COOKIE){
 
     <div id = "dictionary_page">
         <?php
-        //echo $model[2][1][1][id];
+
         //print_r($model);
 
 
@@ -99,7 +102,7 @@ if($_COOKIE){
             echo $items[0];
             //print_r($items);
             echo "</div>";
-            echo "<div class = 'second_word'>";
+
             $noun = array();
             $adj = array();
             $verb = array();
@@ -113,9 +116,10 @@ if($_COOKIE){
             $prich = array();
             $deeprich = array();
             $article = array();
-            $unknow= array();
+            $unknow = array();
+            $reduction = array();
             foreach($items[1] as $item){
-                $word = $model_ru->model()->findByPk($item['id_ru'])->word . "<br>";
+                $word = $model_ru->model()->findByPk($item['id_ru'])->word;
 
                 switch ($item['part_search_id']){
                     case 1: $noun[] = $word;
@@ -146,25 +150,28 @@ if($_COOKIE){
                         break;
                     case 14: $unknow[] = $word;
                         break;
+                    case 15: $reduction[] = $word;
+                        break;
                     default: $unknow[] = $word;
                 }
 
             }
-            outPart($noun, "Существительное");
-            outPart($adj, "Прилогательное");
-            outPart($verb, "Глагол");
-            outPart($pronoun, "Местоимение");
-            outPart($numeral, "Числительное");
-            outPart($adverb, "Наречие");
-            outPart($prepos, "Предлог");
-            outPart($conjun, "Союз");
-            outPart($particle, "Частица");
-            outPart($interject, "Междометие");
-            outPart($prich, "Причастие");
-            outPart($deeprich, "Деепричастие");
-            outPart($article, "Артикль");
-            outPart($unknow, "Не определено");
-
+            echo "<div class = 'second_word'>";
+                outPart($noun, "Существительное");
+                outPart($adj, "Прилогательное");
+                outPart($verb, "Глагол");
+                outPart($pronoun, "Местоимение");
+                outPart($numeral, "Числительное");
+                outPart($adverb, "Наречие");
+                outPart($prepos, "Предлог");
+                outPart($conjun, "Союз");
+                outPart($particle, "Частица");
+                outPart($interject, "Междометие");
+                outPart($prich, "Причастие");
+                outPart($deeprich, "Деепричастие");
+                outPart($article, "Артикль");
+                outPart($unknow, "Не определено");
+                outPart($reduction, "Сокращение");
             echo '</div>';
 
         }
@@ -180,7 +187,7 @@ function outPart($arr, $part){
     if($arr){
         echo "<h5>$part</h5>";
         foreach($arr as $a){
-            echo $a;
+            echo "<div>" . $a . "; </div>";
         }
     }
 }

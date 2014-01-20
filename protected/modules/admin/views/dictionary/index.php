@@ -45,11 +45,24 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'id_eng',
-		'id_ru',
+		'id' => array(
+            'name' => 'id',
+            'headerHtmlOptions' => array('width' => '60px'),
+        ),
+		'id_eng' => array(
+            'name' => 'id_eng',
+            'value' => '$data->word_eng->word',
+            'sortable'=>TRUE,
+        ),
+		'id_ru' => array(
+            'name' => 'id_ru',
+            'value' => '$data->word_ru->word',
+        ),
 		'usage',
-		'part_search_id',
+		'part_search_id' => array(
+            'name' => 'part_search_id',
+            'value' => '$data->part_search->name',
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -90,12 +90,13 @@ class DictionaryController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 */
-            $model = '';
-            $str_preview = '';
-            $str_save = '';
-            $eng_word = '';
-            $ru_word = '';
-            $save_ready = '';
+        $partSearch = PartSearch::model()->findAll();
+        $model = '';
+        $str_preview = '';
+        $str_save = '';
+        $eng_word = '';
+        $ru_word = '';
+        $save_ready = '';
 
         if(isset($_POST['dictionary']) == 'create')
 		{
@@ -156,7 +157,8 @@ class DictionaryController extends Controller
                     //Заносим русские слова в базу
                     foreach($arr_ru as $arr_ru_item){
                         $model_ru = new WordRu;
-                        $model=new Dictionary;
+                        $model= new Dictionary;
+
 
                         //Если в базе WordRu есть русское слово
                         //запоминаем его id, что бы дать на него ссылку
@@ -188,7 +190,7 @@ class DictionaryController extends Controller
 
                         //Проверка валидности Типы речи номируются  1-14
                         //14 неопределенная часть речи
-                        if(($arr_ru_item[1] < 1) || ($arr_ru_item[1] > 14)){
+                        if(($arr_ru_item[1] < 1) || ($arr_ru_item[1] > count($partSearch))){
                             $model->part_search_id = 14;
                         }else{
                             $model->part_search_id = trim($arr_ru_item[1]);

@@ -45,6 +45,7 @@ class Dictionary extends CActiveRecord
 		return array(
             'word_eng' => array(self::BELONGS_TO,'WordEng','id_eng'),
             'word_ru' => array(self::BELONGS_TO,'WordRu','id_ru'),
+            'part_search' => array(self::BELONGS_TO,'PartSearch','part_search_id'),
 		);
 	}
 
@@ -88,6 +89,9 @@ class Dictionary extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+            'pagination' => array(
+                'pageSize' => 50,
+            ),
 		));
 	}
 
