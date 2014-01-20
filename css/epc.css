@@ -318,4 +318,8 @@ h4 span{
 .button:hover{
     background: url('../images/btn_01-2.png') repeat-x #A60000;
 }
-article + article { page-break-before: always; }
+.print_page{
+    page-break-before: always;
+    margin: 0;
+    padding: 0;
+}

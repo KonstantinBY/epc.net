@@ -76,41 +76,45 @@ if(!empty($model)){
             $end = false;
             $x = 0;
             while(!$end){
-                for($i = ($page * $count_words) - $count_words; $i < ($page * $count_words ); $i++){
-                    if(isset($model_sort[$i])){
-                        echo "<div class = 'print_word eng'>";
-                            echo '<div>' . $model_sort[$i] . '</div>';
-                        echo "</div>";
-                        //$x++;
-                    }else{
-                        echo "<div class = 'print_word eng'>";
-                            echo '<div> Model Empty </div>';
-                        echo "</div>";
-                        //$x++;
-                    }
-                }
-
-                for($j = ($page * $count_words) - $count_words; $j < ($page * $count_words) ; $j++){
-                    if(!isset($ru[$j])){
-                        continue;
-                    }
-                    if(isset($ru[$j])){
-                        echo "<div class = 'print_word ru'>";
-                            echo "<div>";
-                                foreach($ru[$j] as $ru_w){
-                                    echo "<div>" . $ru_w->word_ru->word . ";</div>";
-                                }
+                echo "<div class = 'print_page'>";
+                    for($i = ($page * $count_words) - $count_words; $i < ($page * $count_words ); $i++){
+                        if(isset($model_sort[$i])){
+                            echo "<div class = 'print_word eng'>";
+                                echo '<div>' . $model_sort[$i] . '</div>';
                             echo "</div>";
-                        echo "</div>";
-                        $x++;
-                    }else{
-                        echo "<div class = 'print_word eng'>";
-                            echo '<div> Model Empty </div>';
-                        echo "</div>";
-                        $x++;
+                            //$x++;
+                        }else{
+                            echo "<div class = 'print_word eng'>";
+                                echo '<div> Model Empty </div>';
+                            echo "</div>";
+                            //$x++;
+                        }
                     }
+                echo "</div>";
 
-                }echo "<div style = 'width:100%; height: 2px; float: left; background: #6997D3'></div>";
+                echo "<div class = 'print_page'>";
+                    for($j = ($page * $count_words) - $count_words; $j < ($page * $count_words) ; $j++){
+                        if(!isset($ru[$j])){
+                            continue;
+                        }
+                        if(isset($ru[$j])){
+                            echo "<div class = 'print_word ru'>";
+                                echo "<div>";
+                                    foreach($ru[$j] as $ru_w){
+                                        echo "<div>" . $ru_w->word_ru->word . ";</div>";
+                                    }
+                                echo "</div>";
+                            echo "</div>";
+                            $x++;
+                        }else{
+                            echo "<div class = 'print_word eng'>";
+                                echo '<div> Model Empty </div>';
+                            echo "</div>";
+                            $x++;
+                        }
+                    }
+                echo "</div>";
+                echo "<div style = 'width:100%; height: 2px; float: left; background: #6997D3'></div>";
                 if(($x) >= $count_model){
                     $end = true;
                 }
