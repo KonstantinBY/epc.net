@@ -35,12 +35,32 @@ a:link:after, a:visited:after {content:" (" attr(href) ")";font-size:90%;}
 #header, #menu, #right, #print_tools, #footer{
     display: none;
 }
+@page{
+    //size: 11.69in 8.27in landscape;
+}
 #body #content, #middle, #container, #maket, #left{
     width: 18cm;
 }
 #print_list{
     box-shadow: none;
     float: none;
-    width: auto;
-    padding: 0;
+    //width: auto;
+    //padding: 0;
+}
+.print_page{
+    page-break-after: always;
+    page-break-inside: avoid;
+    margin: 0px;
+    //padding: -10px;
+    //height: 100%;
+    float: left;
+    width: 17cm;
+    border: none;
+    box-shadow: none;
+}
+.print_word{
+    margin: -1px;
+}
+.page_separator{
+    display: none;
 }

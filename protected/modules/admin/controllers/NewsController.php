@@ -124,7 +124,7 @@ class NewsController extends Controller
 		if(isset($_GET['News']))
 			$model->attributes=$_GET['News'];
 
-		$this->render('Index',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

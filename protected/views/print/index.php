@@ -49,6 +49,11 @@ echo "<div id = 'print_tools'>";
     echo "<div id = 'button_update' class = 'button'>Update</div>";
     echo "<div class = 'button'> 3 x 8 </div>";
 
+
+
+
+
+
 echo "</div>";
 if(!empty($model)){
     echo "<div id = 'print_list'>";
@@ -92,6 +97,8 @@ if(!empty($model)){
                     }
                 echo "</div>";
 
+                echo "<div class = 'page_separator'></div>";
+
                 echo "<div class = 'print_page'>";
                     for($j = ($page * $count_words) - $count_words; $j < ($page * $count_words) ; $j++){
                         if(!isset($ru[$j])){
@@ -114,7 +121,8 @@ if(!empty($model)){
                         }
                     }
                 echo "</div>";
-                echo "<div style = 'width:100%; height: 2px; float: left; background: #6997D3'></div>";
+                echo "<div class = 'page_separator'></div>";
+
                 if(($x) >= $count_model){
                     $end = true;
                 }
