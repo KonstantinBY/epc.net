@@ -80,16 +80,6 @@ class DictionaryController extends Controller
 	 */
 	public function actionCreate()
 	{
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-/*
-		if(isset($_POST['Dictionary'] == 'save'))
-		{
-			$model->attributes=$_POST['Dictionary'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-*/
         $partSearch = PartSearch::model()->findAll();
         $model = '';
         $str_preview = '';
