@@ -124,7 +124,6 @@ if(!empty($model)){
                 $page++;
                 //echo $x . " / " . $count_model;
             }
-
         echo "</div>";
     echo "</div>";
 }
