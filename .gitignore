@@ -2,3 +2,7 @@
 assets/
 framework/
 uplaods/
+protected/runtime/
+*~
+.gitignore
+*.save

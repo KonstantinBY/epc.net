@@ -48,13 +48,8 @@ echo "<div id = 'print_tools'>";
     echo "<div class = 'print_min button'>2 x 5</div>";
     echo "<div id = 'button_update' class = 'button'>Update</div>";
     echo "<div class = 'button'> 3 x 8 </div>";
-
-
-
-
-
-
 echo "</div>";
+
 if(!empty($model)){
     echo "<div id = 'print_list'>";
         echo "<div class = 'print_center'>";
