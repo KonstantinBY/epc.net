@@ -6,4 +6,4 @@
 
         echo CHtml::textArea('preview_area', $str_preview) ;
 
-    echo '<div>'.$str_save.'</div>';
+    //echo '<div>'.$str_save.'</div>';

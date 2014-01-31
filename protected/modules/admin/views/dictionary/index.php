@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Dictionary', 'url'=>array('index')),
-	array('label'=>'Create Dictionary', 'url'=>array('create')),
+	array('label'=>'Add Words', 'url'=>array('create')),
+    array('label'=>'Import Words', 'url'=>array('import')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

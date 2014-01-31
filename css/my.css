@@ -380,6 +380,11 @@ hr{
     height: 200px;
 }
 
+.import #dictionary_form .word_area{
+    width: 550px;
+    height: 200px;
+}
+
 #dictionary_form{
     float: left;
     width: 100%;
@@ -397,6 +402,11 @@ hr{
 #preview_area{
     width: 300px;
     height: 190px;
+}
+.import #preview_area{
+    float: right;
+    width: 480px;
+    height: 220px;
 }
 #dictionary_faq{
     margin:0;
