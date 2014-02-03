@@ -58,20 +58,79 @@ class DictionaryController extends Controller
     }
 
     /*@items - two-dimensional array $items[][word,word,...]
-        * return array[word]
-        */
+    * @key - save keys
+    * return array[word]
+    */
     public function wordToArray($items){
-        foreach($items as $item){
-            //$ru_str .= $item_ru;
+        $arr_items = array();
+        $items_2 = array();
+
+        //print_r($items);
+        foreach($items as $key => $item){
             if((!empty($item[1]))){
-                for($i = 0; $i <= count($item)-1; $i++){
-                    $items_2 = preg_split("/[;]/", $item, -1, PREG_SPLIT_NO_EMPTY);
-                    $arr_items[] = $items_2;
+                //Находм все скобки
+                //$itemA = array();
+                //preg_match("/[()]/", $item, $itemA);
+
+                //Вырезаем скобки
+                //$item = preg_replace("/[()]/", '', $item);
+
+                //$items_2 = preg_split("/(?=\()[;,](?!=\))/", $item, 4, PREG_SPLIT_NO_EMPTY);
+                    //$items_2 = preg_split("/[;,][^()]/", $item, -1, PREG_SPLIT_NO_EMPTY);
+
+                //Берем все скобки
+                /*
+                preg_match_all('/\(.*?\)/i', $item, $matches);
+                $str1 = preg_replace('/\(.*?\)/i', '',$item);
+                $items_comma = preg_split("/[;,()]/", $str1, -1, PREG_SPLIT_NO_EMPTY);
+
+                foreach ($matches as $m1) {
+                    foreach($m1 as $m2){
+                        $items_2[] = $m2;
+                    }
                 }
+                foreach($items_comma as $ic){
+                    $items_2[] = $ic;
+                }
+                */
+                $brackets = false;
+                $last_char = 0;
+                //Перебор строки по символам
+                for($i = 0; $i < mb_strlen($item, 'utf-8'); $i++) {
+                    while($item[$last_char] == ' '){
+                        $last_char++;
+                        echo $last_char . '-';
+                    }
+                    if($item[$i] == "("){
+                        if((!$brackets)){
+                            $items_2[] = mb_substr($item, $last_char, $i -$last_char - 1, 'utf-8');
+                            $last_char = $i+1;
+                        }
+                        $br_start = $i;
+                        $brackets = true;
+                    }
+                    if($item[$i] == ")"){
+                        $items_2[] = mb_substr($item, $br_start, $i - $br_start+1, 'utf-8');
+                        $last_char = $i+1;
+                        $brackets = false;
+                    }
+                    if((!$brackets) && (($item[$i] == ';') or ($item[$i] == ','))){
+                        $items_2[] = mb_substr($item, $last_char, $i -$last_char, 'utf-8');
+                        $last_char = $i+1;
+                    }
+                }
+
+                if(!empty($items_2)){
+                    $arr_items[] = $items_2;
+                }else{
+                    return false;
+                }
+
             }
         }
         return $arr_items;
     }
+
 
     public function actionImport()
     {
@@ -82,15 +141,30 @@ class DictionaryController extends Controller
 
         if(isset($_POST['dictionary']) == 'import')
         {
+            /*Принимает POST с текстом, заносит в массив
+             * разделив через \r
+             */
             $str_save = $_POST["import_text"];
             $import_words = preg_split("/[\r]/",$_POST["import_text"]);
+            $item_namber = 0;
 
+            /*Удаляет пустые строки
+             * */
+            $import_words = array_filter($import_words, function($item) {
+                return ($item != "\n");
+            });
+
+            /*Обработка массива всех строк разделенных по \r
+             * */
             foreach($import_words as $import_item){
+                if((count($import_words) == 1) && ($import_words[0]=='')) break;
+
                 $import_item = trim($import_item);
-                $eng_word = substr($import_item, 0, mb_stripos($import_item, "[", 0, 'utf-8') - 1);
-                $transcription = substr($import_item,
+                $eng_word = mb_substr($import_item, 0, mb_stripos($import_item, "[", 0, 'utf-8') - 1, 'utf-8');
+                $transcription = mb_substr($import_item,
                     mb_stripos($import_item, "[", 0, 'utf-8'),
-                    mb_stripos($import_item, "]", 0, 'utf-8') - mb_stripos($import_item, "[", 0, 'utf-8') + 1
+                    mb_stripos($import_item, "]", 0, 'utf-8') - mb_stripos($import_item, "[", 0, 'utf-8') + 1,
+                    'utf-8'
                 );
 
                 $usage = substr($import_item,
@@ -125,19 +199,30 @@ class DictionaryController extends Controller
                     "preposition" => mb_stripos($import_item, "prep-", 0, 'utf-8'),
                     "pronoun" => mb_stripos($import_item, "pron-", 0, 'utf-8'),
                     "verb" => mb_stripos($import_item, "v-", 0, 'utf-8'),
-                    "numeral" => mb_stripos($import_item, "num-", 0, 'utf-8')
+                    "numeral" => mb_stripos($import_item, "num-", 0, 'utf-8'),
                 );
+
                 //echo $import_item . "<br>";
 
                 $trans_str = '';
                 $psp = array();
 
                 foreach($part_search_pos as $key => $item){
+                    if($item === 0){
+                        $import_item = substr_replace($import_item, ' ', 0, 0);
+                        $item++;
+                    }
+
                     if(($item)
                         && (mb_substr($import_item, $item - 1, 1, "utf-8") == " ")
+
                     ){
                         $psp[$key] = $item;
                     }
+                }
+                if(count($psp) == 0){
+                    $psp['unknown'] = 1;
+                    $import_item = substr_replace($import_item, ' -', 0, 0);
                 }
                 natsort($psp);
                 $arr_part_search = array();
@@ -152,15 +237,30 @@ class DictionaryController extends Controller
                         $str2 = trim(mb_substr($str, mb_stripos($str, '-') + 1, mb_strlen($str) - mb_stripos($str, '-') + 1,'utf-8'));
                         $arr_part_search[] = trim($str2);
                     }
-
                         $arr_ps = self::wordToArray($arr_part_search);
-                        //$arr_ps = array_diff($arr_ps, array(''));
-                        print_r($arr_ps);
-                        $trans_str .=  "\r - " . $psp_keys[$i] ." {" . $arr_part_search[$i] . "}";
+                }
+                $arr_ps = array_combine($psp_keys, $arr_ps);
+
+
+                foreach ($arr_ps as $key => $ap_1) {
+                    $trans_str .=  "\r $key {\r";
+
+                    foreach($ap_1 as $ap_2){
+                        $ap_2 = trim($ap_2);
+                        $trans_str .=  "-" . $ap_2 . "\r";
+                    }
+                    $trans_str .=  "}";
                 }
 
-                //print_r($psp[0]);
-                $str_preview .= $import_item . "\r" . $eng_word . "-" . $transcription . "-". $trans_str . "\r" . $usage . "\r\r";
+                $str_preview .=
+                    //$import_item .
+                    "\r[" . $item_namber . "] - " .
+                    //$eng_word . "-".
+                    //$transcription . "-".
+                    $trans_str . "\r"
+                    //$usage . "\r\r"
+                ;
+                $item_namber++;
             }
         }
 
