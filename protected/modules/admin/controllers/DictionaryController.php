@@ -62,21 +62,16 @@ class DictionaryController extends Controller
     * return array[word]
     */
     public function wordToArray($items){
-        $arr_items = array();
-        $items_2 = array();
+        $return_arr = array();
+        $temp_arr = array();
 
         //print_r($items);
         foreach($items as $key => $item){
+            $temp_arr = array();
             if((!empty($item[1]))){
-                //Находм все скобки
-                //$itemA = array();
-                //preg_match("/[()]/", $item, $itemA);
 
-                //Вырезаем скобки
-                //$item = preg_replace("/[()]/", '', $item);
-
-                //$items_2 = preg_split("/(?=\()[;,](?!=\))/", $item, 4, PREG_SPLIT_NO_EMPTY);
-                    //$items_2 = preg_split("/[;,][^()]/", $item, -1, PREG_SPLIT_NO_EMPTY);
+                //$temp_arr = preg_split("/(?=\()[;,](?!=\))/", $item, 4, PREG_SPLIT_NO_EMPTY);
+                //$temp_arr = preg_split("/[;,]/", $item, -1, PREG_SPLIT_NO_EMPTY);
 
                 //Берем все скобки
                 /*
@@ -86,49 +81,68 @@ class DictionaryController extends Controller
 
                 foreach ($matches as $m1) {
                     foreach($m1 as $m2){
-                        $items_2[] = $m2;
+                        $temp_arr[] = $m2;
                     }
                 }
                 foreach($items_comma as $ic){
-                    $items_2[] = $ic;
+                    $temp_arr[] = $ic;
                 }
                 */
+
                 $brackets = false;
                 $last_char = 0;
+                $little_br = 0;
+                $br_start = 0;
                 //Перебор строки по символам
-                for($i = 0; $i < mb_strlen($item, 'utf-8'); $i++) {
+                for($i = 0; $i < strlen($item); $i++) {
                     while($item[$last_char] == ' '){
                         $last_char++;
-                        echo $last_char . '-';
+                        //echo $last_char . '- last_char';
                     }
                     if($item[$i] == "("){
-                        if((!$brackets)){
-                            $items_2[] = mb_substr($item, $last_char, $i -$last_char - 1, 'utf-8');
+                        if((!$brackets) && ($i > 1) && $item[$i -1] == ' '){
+                            if(trim(substr($item, $last_char, $i - $last_char - 1)) != 0){
+                                $temp_arr[] = substr($item, $last_char, $i -$last_char - 1);
+                            }
                             $last_char = $i+1;
                         }
                         $br_start = $i;
                         $brackets = true;
                     }
                     if($item[$i] == ")"){
-                        $items_2[] = mb_substr($item, $br_start, $i - $br_start+1, 'utf-8');
-                        $last_char = $i+1;
+                        if(strlen(substr($item, $br_start, $i - $br_start+1)>6)){
+                            $temp_arr[] = substr($item, $br_start, $i - $br_start+1);
+                            $last_char = $i+1;
+                        }else{
+                            $last_char = $little_br;
+                        }
                         $brackets = false;
                     }
-                    if((!$brackets) && (($item[$i] == ';') or ($item[$i] == ','))){
-                        $items_2[] = mb_substr($item, $last_char, $i -$last_char, 'utf-8');
+                    if((!$brackets) && (($item[$i] == ';') or ($item[$i] == ',') )){
+                        if(trim(substr($item, $last_char, $i - $last_char)) != false){
+                            $temp_arr[] = substr($item, $last_char, $i - $last_char);
+                        }
                         $last_char = $i+1;
+                        $little_br = $last_char;
+                    }
+                    if(
+                    (($i+1 >= strlen($item)))){
+
+                        if(strlen(trim(substr($item, $last_char, $i - $last_char+1))) > 0){
+                            $temp_arr[] = substr($item, $last_char, $i - $last_char+1);
+                        }
                     }
                 }
 
-                if(!empty($items_2)){
-                    $arr_items[] = $items_2;
-                }else{
-                    return false;
+
+                if(!empty($temp_arr)){
+                    $return_arr[] = $temp_arr;
                 }
 
             }
         }
-        return $arr_items;
+        //var_dump($return_arr);
+        return $return_arr;
     }
 
 
