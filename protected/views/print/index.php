@@ -33,6 +33,10 @@ Yii::app()->clientScript->registerScript('change_class_print', "
              }
         location.reload();
     });
+    $('.clean').click(function(){
+        $.cookie('my_Words', null);
+        location.reload();
+    })
 ");
 
 $count_words = 21;
@@ -46,17 +50,15 @@ foreach($_COOKIE as $k => $cook){
 echo "<div id = 'print_tools'>";
     echo "<h4><span> (" . count($model) . ") слов</span></h2>";
     echo "<div class = 'print_min button'>2 x 5</div>";
-    echo "<div id = 'button_update' class = 'button'>Update</div>";
-    echo "<div class = 'button'> 3 x 8 </div>";
+    echo "<div class = 'clean button'>Очистить</div>";
+    /*echo "<div id = 'button_update' class = 'button'>Update</div>";
+    echo "<div class = 'button'> 3 x 8 </div>";*/
 echo "</div>";
 
 if(!empty($model)){
     echo "<div id = 'print_list'>";
         echo "<div class = 'print_center'>";
             //sort($model);
-            //print_r($model);
-
-
 
             foreach($model as $item){
                 $model_sort[] = $item->word_eng->word;
@@ -75,6 +77,7 @@ if(!empty($model)){
             $page = 1;
             $end = false;
             $x = 0;
+            //print_r($model_sort);
             while(!$end){
                 echo "<div class = 'print_page'>";
                     for($i = ($page * $count_words) - $count_words; $i < ($page * $count_words ); $i++){

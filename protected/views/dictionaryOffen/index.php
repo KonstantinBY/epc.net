@@ -24,6 +24,36 @@ Yii::app()->clientScript->registerScript('change_class_words', "
             mw = JSON.parse('[' + $.session.get('my_Words') + ']');
             console.log(mw);
         }
+
+        var self = $('#search_word_area');
+        var letter = self.val();
+        $('.main_word').each(function(k, v){
+         var element = $(v);
+            var result = element.text().toLowerCase().indexOf(letter.toLowerCase(),0);  // поиск шаблона в юрл
+            if (result != 0) {
+                element.hide();
+            } else {
+                element.show();
+            }
+        });
+
+
+        ////////
+        $('#search_word_area').on('keyup', function () {
+
+            var self = this;
+            var letter = $(this).val();
+            $('.main_word').each(function(k, v){
+             var element = $(v);
+                var result = element.text().toLowerCase().indexOf(letter.toLowerCase(),0);  // поиск шаблона в юрл
+                if (result != 0) {
+                    element.hide();
+                } else {
+                    element.show();
+                }
+            });
+        });
+
     });
 
     $('.main_word').click(function(){
@@ -47,6 +77,11 @@ Yii::app()->clientScript->registerScript('change_class_words', "
         console.log(mw);
         $.session.set('my_Words', mw);
     });
+
+    $('.clean').click(function(){
+        $.session.set('my_Words', '');
+        location.reload();
+    })
 ");
 
 //print_r($_COOKIE);
@@ -73,9 +108,8 @@ if($_COOKIE){
     </div>
 
     <div id = 'print_tools_horizont'>
-        <div class = 'print_min button'>Сорт. по частоте</div>
-        <div class = 'button'> 3 x 8 </div>
-        <div class = 'button'> 3 x 8 </div>
+        <input type = 'text' id = "search_word_area" title = 'Введите начальные буквы слова' value="">
+        <div class = 'clean button'>Очистить</div>
     </div>
 
     <div id = "dictionary_page">

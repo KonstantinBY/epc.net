@@ -110,12 +110,8 @@ class DictionaryController extends Controller
                         $brackets = true;
                     }
                     if($item[$i] == ")"){
-                        if(strlen(substr($item, $br_start, $i - $br_start+1)>6)){
-                            $temp_arr[] = substr($item, $br_start, $i - $br_start+1);
-                            $last_char = $i+1;
-                        }else{
-                            $last_char = $little_br;
-                        }
+
+                        $last_char = $little_br;
                         $brackets = false;
                     }
                     if((!$brackets) && (($item[$i] == ';') or ($item[$i] == ',') )){
@@ -152,6 +148,7 @@ class DictionaryController extends Controller
         $save_ready = false;
         $str_preview = '';
         $str_save ='';
+        $result_part_search = array();
 
         if(isset($_POST['dictionary']) == 'import')
         {
@@ -169,6 +166,9 @@ class DictionaryController extends Controller
             });
 
             /*Обработка массива всех строк разделенных по \r
+             * varable for save :
+             * $eng_word, $transcription, $result_part_search[], $usage
+             *
              * */
             foreach($import_words as $import_item){
                 if((count($import_words) == 1) && ($import_words[0]=='')) break;
@@ -192,16 +192,7 @@ class DictionaryController extends Controller
                 );
                 //$import_item = tirm($import_item);
 
-                $adjective = array();
-                $adverb = array();
-                $conjunction = array();
-                $interjection = array();
-                $noun = array();
-                $particle = array();
-                $preposition = array();
-                $pronoun = array();
-                $verb = array();
-                $numeral = array();
+
 
                 $part_search_pos = array(
                     "adjective" => mb_stripos($import_item, 'a-', 0, 'utf-8'),
@@ -234,6 +225,7 @@ class DictionaryController extends Controller
                         $psp[$key] = $item;
                     }
                 }
+
                 if(count($psp) == 0){
                     $psp['unknown'] = 1;
                     $import_item = substr_replace($import_item, ' -', 0, 0);
@@ -251,16 +243,15 @@ class DictionaryController extends Controller
                         $str2 = trim(mb_substr($str, mb_stripos($str, '-') + 1, mb_strlen($str) - mb_stripos($str, '-') + 1,'utf-8'));
                         $arr_part_search[] = trim($str2);
                     }
-                        $arr_ps = self::wordToArray($arr_part_search);
+                    $result_part_search = self::wordToArray($arr_part_search);
                 }
-                $arr_ps = array_combine($psp_keys, $arr_ps);
+                $result_part_search = array_combine($psp_keys, $result_part_search);
 
-
-                foreach ($arr_ps as $key => $ap_1) {
+                foreach ($result_part_search as $key => $ap_1) {
                     $trans_str .=  "\r $key {\r";
 
                     foreach($ap_1 as $ap_2){
-                        $ap_2 = trim($ap_2);
+                        //$ap_2 = trim($ap_2);
                         $trans_str .=  "-" . $ap_2 . "\r";
                     }
                     $trans_str .=  "}";
@@ -269,14 +260,121 @@ class DictionaryController extends Controller
                 $str_preview .=
                     //$import_item .
                     "\r[" . $item_namber . "] - " .
-                    //$eng_word . "-".
-                    //$transcription . "-".
-                    $trans_str . "\r"
-                    //$usage . "\r\r"
+                    $eng_word . "-".
+                    $transcription . "-".
+                    $trans_str . "\r".
+                    $usage . "\r\r"
                 ;
+
+                if(isset($_POST['save'])){
+                    //$str_preview = 'Saved';
+                    $eng_id = false;
+                    $ru_id = false;
+
+                    foreach ($result_part_search as $key => $a_ps) {
+                        foreach($a_ps as $ru_word){
+                            $word_ru_save = new WordRu();
+                            $word_eng_save = new WordEng();
+                            $model_save = new Dictionary();
+
+                            if($word_eng_save->model()->findByAttributes(array('word' => $eng_word))){
+                                $eng_id = $word_eng_save->model()->findByAttributes(array('word' => $eng_word))->id;
+                                $str_preview .= "\n - $eng_word есть - " . $eng_id;
+                            }else{
+                                $word_eng_save->word = $eng_word;
+                                $word_eng_save->transcription = $transcription;
+                                $word_eng_save->save();
+                                $eng_id = false;
+                                $str_preview .= "\n - $eng_word создано - " . $eng_word . "-" . $transcription;
+                            }
+
+                            if($word_ru_save->model()->findByAttributes(array('word' => $ru_word))){
+                                $ru_id = $word_ru_save->model()->findByAttributes(array('word' => $ru_word))->id;
+                                $str_preview .= " - $ru_word есть - " . $ru_id;
+                            }else{
+                                $word_ru_save->word = $ru_word;
+                                $word_ru_save->save();
+                                $ru_id = false;
+                                $str_preview .= "- $ru_word создано - " . $ru_word;
+                            }
+
+                            //Если английское слово уже есть, то даем на него ссылку
+                            //если нету, то даем ссылку на только что созданное
+                            if($eng_id != false){
+                                $model_save->id_eng = $eng_id;
+                            }else{
+                                $model->save->id_eng = $word_eng_save->id;
+                            }
+
+                            //Если русское слово уже есть, то даем на него ссылку
+                            //если нету, то даем ссылку на только что созданное
+                            if($ru_id != false){
+                                $model_save->id_ru = $ru_id;
+                            }else{
+                                $model_save->id_ru = $word_ru_save->id;
+                            }
+
+                            $model_save->usage_general = $usage;
+                            $model_save->usage = 3;
+
+                            switch ($key){
+                                case 'adjective': $model_save->part_search_id = 2;
+                                    break;
+                                case 'adverb': $model_save->part_search_id = 6;
+                                    break;
+                                case 'conjunction': $model_save->part_search_id = 8;
+                                    break;
+                                case 'interjection': $model_save->part_search_id = 10;
+                                    break;
+                                case 'noun': $model_save->part_search_id = 1;
+                                    break;
+                                case 'particle': $model_save->part_search_id = 9;
+                                    break;
+                                case 'preposition': $model_save->part_search_id = 7;
+                                    break;
+                                case 'pronoun': $model_save->part_search_id = 4;
+                                    break;
+                                case 'verb': $model_save->part_search_id = 3;
+                                    break;
+                                case 'numeral': $model_save->part_search_id = 5;
+                                    break;
+                                default: $model_save->part_search_id = 14;
+                            }
+
+
+                            if(($eng_id) && ($ru_id)){
+                                $items = $model_save->findAllByAttributes(array('id_eng' => $eng_id));
+                                $flag = false;
+                                foreach($items as $item){
+                                    if($item['id_ru'] == $ru_id){
+                                        $flag = true;
+                                    }
+                                }
+                                if(!$flag){
+                                    if(!$model_save->save()){
+                                        $str_preview = "Не правильно заполнены поля";
+                                    }
+                                }else{
+                                    $str_preview .= " - Link didn't create" ;
+                                }
+                            }
+
+                        }//foreach_inside
+                        $str_preview .= "\n";
+                    } //end foreach
+                }//end save
+
                 $item_namber++;
-            }
-        }
+
+            }//end foreach
+
+            $save_ready = true;
+            /*
+            * varable for save :
+            * $eng_word, $transcription, $result_part_search[part_search][value], $usage
+            */
+
+        }//end import
 
 
         $this->render('import',array(

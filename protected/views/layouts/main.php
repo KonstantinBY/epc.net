@@ -26,7 +26,12 @@
         <div id = "header">
             <div id = logo><a href = "<?php echo Yii::app()->request->baseUrl; ?>"></a></div>
             <div id = logo_title></div>
-            <div id = login> </div>
+            <div id = login>
+                <form title="login">
+                    <label>Name<input type="text"></label>
+                    <label>Password<input type="text"></label>
+                </form>
+            </div>
         </div>
         <div id = "menu">
             <div id = "btn_news"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/" ></a></div>

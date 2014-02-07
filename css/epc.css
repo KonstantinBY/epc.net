@@ -73,8 +73,28 @@ h4 span{
 #login{
 	width: 223px;
 	height: 100px;		
-	background:url(../images/login.png)	no-repeat;
+	//background:url(../images/login.png)	no-repeat;
 	float: right;
+}
+#login form{
+    padding-top: 15px;
+}
+
+#login label{
+    margin-top: 5px;skype:yaryj88
+    float: right;
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14pt;
+    color: #05326D;
+}
+
+#login input{
+    margin-left: 5px;
+    width: 120px;
+    float: right;
+    border: 1px solid #05326D;
+    border-radius: 3px;
 }
 
 #menu{
@@ -170,9 +190,9 @@ h4 span{
     background: #ffeeee;
 }
 #dictionary_page .second_word{
-    position: absolute;
-    right: 0px;
-    top: 40px;
+    position: fixed;
+    right: 340px;
+    top: 240px;
     width: 145px;
     background: none;
     text-align: left;
@@ -189,11 +209,13 @@ h4 span{
 }
 
 #dictionary_border{
+    display: block;
     width: 150px;
-    min-height: 440px;
-    position:relative;
+    height: 100%;
+    //min-height: 100%;
+    position: absolute;
     right: 0;
-    top: 0;
+    top: 55px;
     float: right;
     border-left: 1px dashed #6997D3;
 
@@ -220,7 +242,7 @@ h4 span{
     box-shadow: 0px 0px 6px #444;
 }
 .print_word.eng{
-    font-size: 32px;
+    font-size: 24px;
 }
 .print_word.ru{
     float: right;
@@ -233,7 +255,7 @@ h4 span{
     display: flex;
     vertical-align:middle;
     overflow: hidden;
-    font-size: 12px;
+    font-size: 14px;
     padding-bottom: 0.4cm;
     margin: -1px;
 }
@@ -242,7 +264,7 @@ h4 span{
     width: 8.48cm;
     //width: 50%;
     height: 4.3cm; //4.8cm;
-    font-size: 14px;
+    font-size: 18px;
     //padding: 0.1cm 0.2cm;
 }
 
@@ -291,6 +313,7 @@ h4 span{
 
 
 #right{
+    display: none;
 	width: 190px;
 	height: 440px;
 	float: right;
@@ -309,7 +332,7 @@ h4 span{
      min-height: 200px;
  }
 #print_tools_horizont{
-    display: none;
+    display: block;
     float: left;
     width: 800px;
     height: 20px;

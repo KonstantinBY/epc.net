@@ -54,17 +54,24 @@ class PrintController extends Controller
         $dictionary = new Dictionary();
         $model_ru = WordRu::model()->findAll();
         $model = array();
+
+
         foreach($_COOKIE as $k => $cook){
             if(substr_count($k, 'my_Words')){
-                $cur_words = explode(',', $cook);
+                if(!empty($cook)){
+                    $cur_words = explode(',', $cook);
+                }
             }
         }
 
         //$model_ru = Dictionary::model()->findAllByAttributes(array('id_eng' => ));
         //print_r($cur_words);
+
         foreach($cur_words as $word){
             $model[] = Dictionary::model()->findByPk($word);
         }
+
+
 
 		$this->render('index',array(
 			'model' => $model,

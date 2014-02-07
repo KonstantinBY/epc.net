@@ -6,6 +6,7 @@
  * The followings are the available columns in table '{{word_eng}}':
  * @property integer $id
  * @property string $word
+ * @property $transcription
  */
 class WordEng extends CActiveRecord
 {
@@ -51,6 +52,7 @@ class WordEng extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'word' => 'Word',
+            'transcription' => 'Transcription',
 		);
 	}
 
@@ -74,6 +76,7 @@ class WordEng extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('word',$this->word,true);
+        $criteria->compare('word',$this->transcription,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -91,7 +94,7 @@ class WordEng extends CActiveRecord
         return $array;
         ==
         */
-        return CHtml::listData(self::model()->findAll(), 'id', 'title');
+        return CHtml::listData(self::model()->findAll(), 'id', 'title' , 'transcription');
     }
 
 	/**
