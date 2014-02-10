@@ -49,7 +49,7 @@ class DictionaryPageController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionIndex()
+	public function actionIndex($letter = "a")
 	{
 		$model_d = new Dictionary();
         $model_eng = WordEng::model()->findAll();
@@ -57,14 +57,15 @@ class DictionaryPageController extends Controller
         $model = array();
 
         foreach($model_eng as $item){
-            $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
+            if($letter == 'all'){
+                $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
+            }elseif(strtolower($item->word[0]) == $letter){
+                $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
+            }
         }
 
-        /*$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Dictionary']))
-			$model->attributes=$_GET['Dictionary'];
-*/
 		$this->render('index',array(
+            'idLetter' => $letter,
 			'model' => $model,
             'model_d' => $model_d,
             'model_eng' => $model_eng,

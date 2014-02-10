@@ -37,7 +37,6 @@ Yii::app()->clientScript->registerScript('change_class_words', "
             }
         });
 
-
         ////////
         $('#search_word_area').on('keyup', function () {
 
@@ -60,7 +59,6 @@ Yii::app()->clientScript->registerScript('change_class_words', "
         $(this).toggleClass('red');
         word_id = $(this).attr('id');
         console.log(mw);
-
 
         var removed = 0;
         $.each(mw, function(k, v){
@@ -95,8 +93,6 @@ if($_COOKIE){
     }
 }
 
-//sort($cur_words);
-//print_r($cur_words);
 
 ?>
     <div class = "left_title">
@@ -107,6 +103,26 @@ if($_COOKIE){
         </h4>
     </div>
 
+    <div id = 'alphabet'>
+        <?php
+        if($idLetter == 'all'){
+            echo CHtml::link('All', array('dictionaryPage/index', 'letter' => 'all'), array('class' => 'active'));
+        }else{
+            echo CHtml::link('All', array('dictionaryPage/index', 'letter' => 'all'));
+        }
+        ?>
+        <?php
+        $letters = range('a', 'z');
+        foreach ($letters as $letter) {
+            $htmlOptions = array();
+            if ($idLetter == $letter) {
+                $htmlOptions['class'] = 'active';
+            }
+            echo CHtml::link(strtoupper($letter), array('dictionaryPage/index', 'letter' => $letter), $htmlOptions);
+        }
+        ?>
+    </div>
+
     <div id = 'print_tools_horizont'>
         <input type = 'text' id = "search_word_area" title = 'Введите начальные буквы слова' value="">
         <div class = 'clean button'>Очистить</div>
@@ -114,109 +130,99 @@ if($_COOKIE){
 
     <div id = "dictionary_page">
         <?php
-
-        //print_r($model);
-
-
-        echo "<div id = 'dictionary_border'></div>";
-        $red_word = 0;
-        //sort($model);
-        foreach($model as $items){
+            echo "<div id = 'dictionary_border'></div>";
             $red_word = 0;
-            foreach($cur_words as $word_id){
-                if($word_id == $items[1][0]['id']){
-                    $red_word = 1;
+            foreach($model as $items){
+                $red_word = 0;
+                foreach($cur_words as $word_id){
+                    if($word_id == $items[1][0]['id']){
+                        $red_word = 1;
+                    }
                 }
-            }
-            $cur_class = 'main_word';
-            if(($red_word) && $cur_words != 0){
-                $cur_class = "class = 'main_word red'";
-            }else{ $cur_class = "class = 'main_word'";}
-            echo "<div id = ". $items[1][0]['id'] . "  " . $cur_class . ">";
-            echo $items[0];
-            //print_r($items);
-            echo "</div>";
+                $cur_class = 'main_word';
+                if(($red_word) && $cur_words != 0){
+                    $cur_class = "class = 'main_word red'";
+                }else{ $cur_class = "class = 'main_word'";}
+                echo "<div id = ". $items[1][0]['id'] . "  " . $cur_class . ">";
+                    echo $items[0];
+                echo "</div>";
 
-            $noun = array();
-            $adj = array();
-            $verb = array();
-            $pronoun = array();
-            $numeral= array();
-            $adverb = array();
-            $prepos = array();
-            $conjun = array();
-            $particle = array();
-            $interject = array();
-            $prich = array();
-            $deeprich = array();
-            $article = array();
-            $unknow = array();
-            $reduction = array();
-            foreach($items[1] as $item){
-                $word = $model_ru->model()->findByPk($item['id_ru'])->word;
+                $noun = array();
+                $adj = array();
+                $verb = array();
+                $pronoun = array();
+                $numeral= array();
+                $adverb = array();
+                $prepos = array();
+                $conjun = array();
+                $particle = array();
+                $interject = array();
+                $prich = array();
+                $deeprich = array();
+                $article = array();
+                $unknow = array();
+                $reduction = array();
+                foreach($items[1] as $item){
+                    $word = $model_ru->model()->findByPk($item['id_ru'])->word;
 
-                switch ($item['part_search_id']){
-                    case 1: $noun[] = $word;
-                        break;
-                    case 2: $adj[] = $word;
-                        break;
-                    case 3: $verb[] = $word;;
-                        break;
-                    case 4: $pronoun[] = $word;
-                        break;
-                    case 5: $numeral[] = $word;
-                        break;
-                    case 6: $adverb[] = $word;
-                        break;
-                    case 7: $prepos[] = $word;
-                        break;
-                    case 8: $conjun[] = $word;;
-                        break;
-                    case 9: $particle[] = $word;
-                        break;
-                    case 10: $interject[] = $word;
-                        break;
-                    case 11: $prich[] = $word;
-                        break;
-                    case 12: $deeprich[] = $word;
-                        break;
-                    case 13: $article[] = $word;;
-                        break;
-                    case 14: $unknow[] = $word;
-                        break;
-                    case 15: $reduction[] = $word;
-                        break;
-                    default: $unknow[] = $word;
+                    switch ($item['part_search_id']){
+                        case 1: $noun[] = $word;
+                            break;
+                        case 2: $adj[] = $word;
+                            break;
+                        case 3: $verb[] = $word;;
+                            break;
+                        case 4: $pronoun[] = $word;
+                            break;
+                        case 5: $numeral[] = $word;
+                            break;
+                        case 6: $adverb[] = $word;
+                            break;
+                        case 7: $prepos[] = $word;
+                            break;
+                        case 8: $conjun[] = $word;;
+                            break;
+                        case 9: $particle[] = $word;
+                            break;
+                        case 10: $interject[] = $word;
+                            break;
+                        case 11: $prich[] = $word;
+                            break;
+                        case 12: $deeprich[] = $word;
+                            break;
+                        case 13: $article[] = $word;;
+                            break;
+                        case 14: $unknow[] = $word;
+                            break;
+                        case 15: $reduction[] = $word;
+                            break;
+                        default: $unknow[] = $word;
+                    }
+
                 }
+                echo "<div class = 'second_word'>";
+                    outPart($noun, "Существительное");
+                    outPart($adj, "Прилогательное");
+                    outPart($verb, "Глагол");
+                    outPart($pronoun, "Местоимение");
+                    outPart($numeral, "Числительное");
+                    outPart($adverb, "Наречие");
+                    outPart($prepos, "Предлог");
+                    outPart($conjun, "Союз");
+                    outPart($particle, "Частица");
+                    outPart($interject, "Междометие");
+                    outPart($prich, "Причастие");
+                    outPart($deeprich, "Деепричастие");
+                    outPart($article, "Артикль");
+                    outPart($unknow, "Не определено");
+                    outPart($reduction, "Сокращение");
+                echo '</div>';
 
             }
-            echo "<div class = 'second_word'>";
-                outPart($noun, "Существительное");
-                outPart($adj, "Прилогательное");
-                outPart($verb, "Глагол");
-                outPart($pronoun, "Местоимение");
-                outPart($numeral, "Числительное");
-                outPart($adverb, "Наречие");
-                outPart($prepos, "Предлог");
-                outPart($conjun, "Союз");
-                outPart($particle, "Частица");
-                outPart($interject, "Междометие");
-                outPart($prich, "Причастие");
-                outPart($deeprich, "Деепричастие");
-                outPart($article, "Артикль");
-                outPart($unknow, "Не определено");
-                outPart($reduction, "Сокращение");
-            echo '</div>';
-
-        }
-
         ?>
-
     </div>
 
 <?php
-
-
 function outPart($arr, $part){
     if($arr){
         echo "<h5>$part</h5>";

@@ -182,6 +182,22 @@ h4 span{
     float: left;
     margin-top: 5px;
 }
+#alphabet a{
+    display: inline-block;
+    margin-left: 5px;
+    text-decoration: none;
+    color: #05326D;
+    font-weight: bold;
+}
+#alphabet a:link{
+    color: #05326D;
+}
+
+#alphabet a.active{
+    color:#a60000;
+    font-size: 1.4em;
+}
+
 #dictionary_page .main_word:hover+.second_word{
     display: block;
 }

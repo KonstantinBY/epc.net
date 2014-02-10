@@ -14,10 +14,9 @@ $this->breadcrumbs = array(
 </script>
 
 <?php
-//$_SESSION['myVar'] = array();
+
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.session.js', CClientScript::POS_END);
 Yii::app()->clientScript->registerScript('change_class_words', "
-
 
     mw = [];
     jQuery(function($){
@@ -39,7 +38,6 @@ Yii::app()->clientScript->registerScript('change_class_words', "
             }
         });
 
-
         ////////
         $('#search_word_area').on('keyup', function () {
 
@@ -55,8 +53,6 @@ Yii::app()->clientScript->registerScript('change_class_words', "
                 }
             });
         });
-
-
     });
 
     $('.main_word').click(function(){
@@ -109,22 +105,38 @@ if($_COOKIE){
     </h4>
 </div>
 
+<div id = 'alphabet'>
+    <?php
+        if($idLetter == 'all'){
+            echo CHtml::link('All', array('dictionaryPage/index', 'letter' => 'all'), array('class' => 'active'));
+        }else{
+            echo CHtml::link('All', array('dictionaryPage/index', 'letter' => 'all'));
+        }
+    ?>
+    <?php
+        $letters = range('a', 'z');
+        foreach ($letters as $letter) {
+            $htmlOptions = array();
+            if ($idLetter == $letter) {
+                $htmlOptions['class'] = 'active';
+            }
+            echo CHtml::link(strtoupper($letter), array('dictionaryPage/index', 'letter' => $letter), $htmlOptions);
+        }
+    ?>
+</div>
+
 <div id = 'print_tools_horizont'>
-    <input type = 'text' id = "search_word_area" title = 'Введите начальные буквы слова' value="A">
+    <input type = 'text' id = "search_word_area" title = 'Введите начальные буквы слова' value="">
     <div class = 'clean button'>Очистить</div>
 </div>
 
 <div id = "dictionary_page">
     <?php
-        //echo $model[2][1][1][id];
-        //print_r($model);
-
 
     echo "<div id = 'dictionary_border'></div>";
         $red_word = 0;
         sort($model);
 
-        //print_r($model[0][1][0]);
         foreach($model as $items){
             $red_word = 0;
             foreach($cur_words as $word_id){
@@ -138,7 +150,6 @@ if($_COOKIE){
             }else{ $cur_class = "class = 'main_word'";}
             echo "<div id = ". $items[1][0]['id'] . "  " . $cur_class . ">";
                 echo $items[0];
-                //print_r($items);
             echo "</div>";
 
             $noun = array();
@@ -192,7 +203,6 @@ if($_COOKIE){
                             break;
                         default: $unknow[] = $word;
                     }
-
                 }
             echo "<div class = 'second_word'>";
                 outPart($noun, "Существительное");
@@ -211,16 +221,11 @@ if($_COOKIE){
                 outPart($unknow, "Не определено");
                 outPart($reduction, "Сокращение");
             echo '</div>';
-
         }
-
     ?>
-
 </div>
 
 <?php
-
-
 function outPart($arr, $part){
     if($arr){
         echo "<h5>$part</h5>";

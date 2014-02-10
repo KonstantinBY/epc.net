@@ -120,7 +120,7 @@ class DictionaryOffenController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public function actionIndex($letter = 'all')
 	{
         $model_d = new Dictionary();
         $model_eng = WordEng::model()->findAll();
@@ -129,7 +129,11 @@ class DictionaryOffenController extends Controller
 
         foreach($model_eng as $item){
 
-            $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
+            if($letter == 'all'){
+                $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
+            }elseif(strtolower($item->word[0]) == $letter){
+                $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
+            }
         }
 
         /*$model->unsetAttributes();  // clear any default values
@@ -137,6 +141,7 @@ class DictionaryOffenController extends Controller
 			$model->attributes=$_GET['Dictionary'];
 */
         $this->render('index',array(
+                'idLetter' => $letter,
                 'model' => $model,
                 'model_d' => $model_d,
                 'model_eng' => $model_eng,
