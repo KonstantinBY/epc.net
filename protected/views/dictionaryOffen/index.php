@@ -9,10 +9,7 @@ $this->breadcrumbs = array(
 
 ?>
 
-    <script type = "text/javascript">
-
-    </script>
-
+<div id = "loader" class = ''></div>
 <?php
 //$_SESSION['myVar'] = array();
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.session.js', CClientScript::POS_END);
@@ -24,6 +21,29 @@ Yii::app()->clientScript->registerScript('change_class_words', "
             mw = JSON.parse('[' + $.session.get('my_Words') + ']');
             console.log(mw);
         }
+
+        $('#alphabet a').live('click', function () {
+            var self = $(this);
+            var href = self.attr('href');
+            $.ajax({
+                url: href,
+                dataType: 'html',
+                beforeSend: function() {
+                    $('#loader').addClass('loading');
+                }
+            })
+            .done(function(response) {
+                var newPage = $(response);
+                $('#content').html(newPage.find('#content').html());
+                $('#loader').removeClass('loading');
+
+            })
+            .fail(function() {
+                alert( 'error' );
+            });
+
+            return false;
+        })
 
         var self = $('#search_word_area');
         var letter = self.val();
@@ -38,7 +58,7 @@ Yii::app()->clientScript->registerScript('change_class_words', "
         });
 
         ////////
-        $('#search_word_area').on('keyup', function () {
+        $('#search_word_area').live('keyup', function () {
 
             var self = this;
             var letter = $(this).val();
@@ -52,10 +72,9 @@ Yii::app()->clientScript->registerScript('change_class_words', "
                 }
             });
         });
-
     });
 
-    $('.main_word').click(function(){
+    $('.main_word').live ('click', function(){
         $(this).toggleClass('red');
         word_id = $(this).attr('id');
         console.log(mw);
@@ -68,18 +87,18 @@ Yii::app()->clientScript->registerScript('change_class_words', "
                 }
             }
         );
-
         if (!removed) {
             mw.push(word_id);
         }
         console.log(mw);
         $.session.set('my_Words', mw);
     });
-
-    $('.clean').click(function(){
+    $('.clean').live('click', function(){
+        $('#loader').addClass('loading');
         $.session.set('my_Words', '');
         location.reload();
     })
+
 ");
 
 //print_r($_COOKIE);

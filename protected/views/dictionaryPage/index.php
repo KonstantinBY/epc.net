@@ -9,10 +9,7 @@ $this->breadcrumbs = array(
 
 ?>
 
-<script type = "text/javascript">
-
-</script>
-    <div id = "loader" class = ''></div>
+<div id = "loader" class = ''></div>
 
 <?php
 
@@ -98,6 +95,7 @@ Yii::app()->clientScript->registerScript('change_class_words', "
         $.session.set('my_Words', mw);
     });
     $('.clean').live('click', function(){
+        $('#loader').addClass('loading');
         $.session.set('my_Words', '');
         location.reload();
     })
