@@ -59,8 +59,6 @@ Yii::app()->clientScript->registerScript('change_class_words', "
 
     });
 
-
-
     $('.main_word').click(function(){
         $(this).toggleClass('red');
         word_id = $(this).attr('id');

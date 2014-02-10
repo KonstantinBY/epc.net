@@ -7316,3 +7316,27 @@ Stack trace:
 #29 {main}
 REQUEST_URI=/
 ---
+2014/02/08 00:00:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/kot/sites/epc.net/htdocs/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/kot/sites/epc.net/htdocs/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/02/08 00:00:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/kot/sites/epc.net/htdocs/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/kot/sites/epc.net/htdocs/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/02/08 00:00:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/kot/sites/epc.net/htdocs/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/kot/sites/epc.net/htdocs/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

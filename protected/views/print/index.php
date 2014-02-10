@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScript('change_class_print', "
         location.reload();
     });
     $('.clean').click(function(){
-        $.cookie('my_Words', null);
+        $.session.set('my_Words', '');
         location.reload();
     })
 ");
