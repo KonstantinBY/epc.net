@@ -4,5 +4,6 @@ framework/
 uplaods/
 protected/runtime/
 *~
-.gitignore
+*gitignore
 *.save
+images/
