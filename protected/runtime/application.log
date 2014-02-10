@@ -7480,3 +7480,14 @@ REQUEST_URI=/dictionaryOffen
 in /home/kot/sites/epc.net/htdocs/protected/views/dictionaryOffen/index.php (112)
 in /home/kot/sites/epc.net/htdocs/protected/controllers/DictionaryOffenController.php (148)
 in /home/kot/sites/epc.net/htdocs/index.php (13)
+2014/02/10 15:39:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "fdsf".' in /home/kot/sites/epc.net/htdocs/framework/web/CController.php:483
+Stack trace:
+#0 /home/kot/sites/epc.net/htdocs/framework/web/CController.php(270): CController->missingAction('fdsf')
+#1 /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php(282): CController->run('fdsf')
+#2 /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php(141): CWebApplication->runController('dictionaryPage/...')
+#3 /home/kot/sites/epc.net/htdocs/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/kot/sites/epc.net/htdocs/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dictionaryPage/fdsf
+HTTP_REFERER=http://epc.net/dictionaryPage/index?letter=z
+---
