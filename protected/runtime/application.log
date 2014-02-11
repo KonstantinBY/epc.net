@@ -7491,3 +7491,19 @@ Stack trace:
 REQUEST_URI=/dictionaryPage/fdsf
 HTTP_REFERER=http://epc.net/dictionaryPage/index?letter=z
 ---
+2014/02/11 00:35:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/kot/sites/epc.net/htdocs/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/kot/sites/epc.net/htdocs/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/02/11 00:35:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/kot/sites/epc.net/htdocs/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/kot/sites/epc.net/htdocs/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/kot/sites/epc.net/htdocs/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

@@ -72,8 +72,7 @@ h4 span{
 }
 #login{
 	width: 223px;
-	height: 100px;		
-	//background:url(../images/login.png)	no-repeat;
+	height: 100px;
 	float: right;
 }
 #login form{
@@ -99,7 +98,6 @@ h4 span{
 
 #menu{
 	margin: auto;
-	//width: 801px;
 	height: 62px;	
 	background: url(../images/menu_background.png) no-repeat;
 }
@@ -173,7 +171,7 @@ h4 span{
     cursor: pointer;
     color: #05326D;
     font-weight: bold;
-    background: none
+    background: none;
 }
 .main_word:hover{
     background: #ffeeee;
@@ -207,14 +205,15 @@ h4 span{
 }
 #dictionary_page .second_word{
     position: fixed;
-    right: 340px;
-    top: 240px;
+    right: calc(50% - 300px);
+    top: 250px;
     width: 145px;
     background: none;
     text-align: left;
     display: none;
     float: right;
     color: #6997D3;
+    margin: auto;
 }
 #dictionary_page .second_word div{
     float: left;
@@ -228,7 +227,6 @@ h4 span{
     display: block;
     width: 150px;
     height: 100%;
-    //min-height: 100%;
     position: absolute;
     right: 0;
     top: 55px;
@@ -247,14 +245,12 @@ h4 span{
     width: 662px;
 }
 .print_page{
-    //page-break-before: always;
     margin: -1px;
     padding: -1px;
     height: 100%;
     float: left;
     width: 17cm;
-    height: 23.5.0cm;
-    //border: 1px solid;
+    height: 23.5cm;
     box-shadow: 0px 0px 6px #444;
 }
 .print_word.eng{
@@ -278,10 +274,8 @@ h4 span{
 
 .print_word_big{
     width: 8.48cm;
-    //width: 50%;
-    height: 4.3cm; //4.8cm;
+    height: 4.3cm;
     font-size: 18px;
-    //padding: 0.1cm 0.2cm;
 }
 
 .print_word div{
