@@ -1,6 +1,8 @@
 <?php
-/* @var $this DictionaryPageController */
-/* @var $model Dictionary */
+/** @var $this DictionaryPageController */
+/** @var $model Dictionary */
+/** @var $model_ru WordRu */
+/** @var $model_eng WordEng */
 
 $this->breadcrumbs = array(
     'Dictionaries' => array('index'),
@@ -11,17 +13,17 @@ $this->breadcrumbs = array(
 
 <div id = "loader" class = ''></div>
 <?php
-//$_SESSION['myVar'] = array();
+
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.session.js', CClientScript::POS_END);
 Yii::app()->clientScript->registerScript('change_class_words', "
-
+    // initialization @var wm
     mw = [];
     jQuery(function($){
         if(typeof $.session.get('my_Words') !== 'undefined') {
             mw = JSON.parse('[' + $.session.get('my_Words') + ']');
-            console.log(mw);
         }
 
+            // ajax load model by click letter in alphabet
         $('#alphabet a').live('click', function () {
             var self = $(this);
             var href = self.attr('href');
@@ -41,10 +43,10 @@ Yii::app()->clientScript->registerScript('change_class_words', "
             .fail(function() {
                 alert( 'error' );
             });
-
             return false;
         })
 
+        // filter words by search area after load
         var self = $('#search_word_area');
         var letter = self.val();
         $('.main_word').each(function(k, v){
@@ -57,9 +59,8 @@ Yii::app()->clientScript->registerScript('change_class_words', "
             }
         });
 
-        ////////
+        // filter words by search area after keyup
         $('#search_word_area').live('keyup', function () {
-
             var self = this;
             var letter = $(this).val();
             $('.main_word').each(function(k, v){
@@ -74,23 +75,20 @@ Yii::app()->clientScript->registerScript('change_class_words', "
         });
     });
 
+    // toggle class RED by click on word and add or remove words id to COOKIE
     $('.main_word').live ('click', function(){
         $(this).toggleClass('red');
         word_id = $(this).attr('id');
-        console.log(mw);
-
         var removed = 0;
         $.each(mw, function(k, v){
-                if (v == word_id) {
-                    mw.splice(k,1);
-                    removed = 1;
-                }
+            if (v == word_id) {
+                mw.splice(k,1);
+                removed = 1;
             }
-        );
+        });
         if (!removed) {
             mw.push(word_id);
         }
-        console.log(mw);
         $.session.set('my_Words', mw);
     });
     $('.clean').live('click', function(){
@@ -101,9 +99,8 @@ Yii::app()->clientScript->registerScript('change_class_words', "
 
 ");
 
-//print_r($_COOKIE);
-
 $cur_words = array();
+//break  cookie with words ID to array
 if($_COOKIE){
     foreach($_COOKIE as $k => $cook){
         if(substr_count($k, 'my_Words')){
@@ -111,8 +108,6 @@ if($_COOKIE){
         }
     }
 }
-
-
 ?>
     <div class = "left_title">
         <h2>Словарь <span>выберите слова для печати и перейдите в меню “Print”</span></h2>
@@ -122,35 +117,43 @@ if($_COOKIE){
         </h4>
     </div>
 
+    <!--output alphabet-->
     <div id = 'alphabet'>
         <?php
-        if($idLetter == 'all'){
-            echo CHtml::link('All', array('dictionaryPage/index', 'letter' => 'all'), array('class' => 'active'));
-        }else{
-            echo CHtml::link('All', array('dictionaryPage/index', 'letter' => 'all'));
-        }
+            //output word 'All' either active or not
+            if($idLetter == 'all'){
+                echo CHtml::link('All', array('dictionaryOffen/index', 'letter' => 'all'), array('class' => 'active'));
+            }else{
+                echo CHtml::link('All', array('dictionaryOffen/index', 'letter' => 'all'));
+            }
         ?>
         <?php
-        $letters = range('a', 'z');
-        foreach ($letters as $letter) {
-            $htmlOptions = array();
-            if ($idLetter == $letter) {
-                $htmlOptions['class'] = 'active';
+            //output letters from 'a' to 'z' either active or not
+            $letters = range('a', 'z');
+            foreach ($letters as $letter) {
+                $htmlOptions = array();
+                if ($idLetter == $letter) {
+                    $htmlOptions['class'] = 'active';
+                }
+                echo CHtml::link(strtoupper($letter), array('dictionaryOffen/index', 'letter' => $letter), $htmlOptions);
             }
-            echo CHtml::link(strtoupper($letter), array('dictionaryPage/index', 'letter' => $letter), $htmlOptions);
-        }
         ?>
     </div>
 
+    <!--output horizontal menu with button 'Clean' and search area-->
     <div id = 'print_tools_horizont'>
         <input type = 'text' id = "search_word_area" title = 'Введите начальные буквы слова' value="">
         <div class = 'clean button'>Очистить</div>
     </div>
 
+    <!--output dictionary content-->
     <div id = "dictionary_page">
         <?php
             echo "<div id = 'dictionary_border'></div>";
             $red_word = 0;
+            //break model by array
+            // $model[array_words][eng_word=0, ru_words_array=1][model_Dictionary]
+
             foreach($model as $items){
                 $red_word = 0;
                 foreach($cur_words as $word_id){
@@ -181,9 +184,11 @@ if($_COOKIE){
                 $article = array();
                 $unknow = array();
                 $reduction = array();
+
+                //@var $item[model_Dictionary]
                 foreach($items[1] as $item){
                     $word = $model_ru->model()->findByPk($item['id_ru'])->word;
-
+                    //add to array by part search
                     switch ($item['part_search_id']){
                         case 1: $noun[] = $word;
                             break;
@@ -242,6 +247,10 @@ if($_COOKIE){
     </div>
 
 <?php
+/**
+ * @param $arr array output russian words
+ * @param $part string label part of search
+ */
 function outPart($arr, $part){
     if($arr){
         echo "<h5>$part</h5>";

@@ -67,7 +67,7 @@ class DictionaryPageController extends Controller
 		$this->render('index',array(
             'idLetter' => $letter,
 			'model' => $model,
-            'model_d' => $model_d,
+            //'model_d' => $model_d,
             'model_eng' => $model_eng,
             'model_ru' => $model_ru,
 		));
