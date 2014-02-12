@@ -20,6 +20,8 @@ class NewsController extends Controller
 	}
 
 //3 branch
+// 4 branch
+
 
 	/**
 	 * Specifies the access control rules.
