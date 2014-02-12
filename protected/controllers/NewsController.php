@@ -20,7 +20,7 @@ class NewsController extends Controller
 	}
 
 //3 branch
-// 4 branch
+// 4 
 
 
 	/**
