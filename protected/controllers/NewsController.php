@@ -18,7 +18,7 @@ class NewsController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
+// 4 branch
 
 
 	/**
