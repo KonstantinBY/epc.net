@@ -57,9 +57,7 @@ class DictionaryPageController extends Controller
         $model = array();
 
         foreach($model_eng as $item){
-            if($letter == 'all'){
-                $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
-            }elseif(strtolower($item->word[0]) == $letter){
+            if(($letter == 'all') or (strtolower($item->word[0]) == $letter)){
                 $model[] = array($item->word, $model_d->findAllByAttributes(array('id_eng' => $item->id)));
             }
         }

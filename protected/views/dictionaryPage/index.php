@@ -157,6 +157,7 @@ if($_COOKIE){
 
         foreach($model as $items){
             $red_word = 0;
+
             //break model by array
             // $model[array_words][eng_word=0, ru_words_array=1][model_Dictionary]
             foreach($cur_words as $word_id){
@@ -165,7 +166,7 @@ if($_COOKIE){
                 }
             }
             $cur_class = 'main_word';
-            if(($red_word) && $cur_words != 0){
+            if(($red_word) && ($cur_words != 0)){
                 $cur_class = "class = 'main_word red'";
             }else{ $cur_class = "class = 'main_word'";}
             echo "<div id = ". $items[1][0]['id'] . "  " . $cur_class . ">";
