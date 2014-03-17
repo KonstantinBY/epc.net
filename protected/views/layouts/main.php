@@ -39,7 +39,7 @@
             <div id = "btn_often" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/dictionaryOffen"></a></div>
             <div id = "btn_picture" class = "btn_menu"><a href = "javascript:void(0);"></a></div>
             <div id = "btn_print" class = "btn_menu"><a href = "<?php echo Yii::app()->request->baseUrl; ?>/print"></a></div>
-            <div id = "btn_faq" class = "btn_menu"><a href = "javascript:void(0);"></a></div>
+            <div id = "btn_faq" class = "btn_menu"><a href = <?php echo Yii::app()->request->baseUrl; ?>"/faq"></a></div>
             <div id = "btn_account" class = "btn_menu"><a href = "javascript:void(0)"></a></div>
         </div>
         <div id = "middle">

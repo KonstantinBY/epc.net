@@ -19,10 +19,6 @@ class NewsController extends Controller
 		);
 	}
 
-//3 branch
-// 4 
-
-
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
